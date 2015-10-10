@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  
+  # root to default home page
+  root 'pages#home'
+  
+  get 'feed' => 'pages#feed'
+
+  get 'pages/home'
+
+  get 'profile/:id' => "pages#profile"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
