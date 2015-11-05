@@ -2,13 +2,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
-  # GET /posts.json
   def index
     @posts = Post.all
   end
 
   # GET /posts/1
-  # GET /posts/1.json
   def show
   end
 
@@ -22,43 +20,35 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
-        format.html { redirect_to '/', notice: 'Post was successfully created.' }
+        format.html { redirect_to '/feed', notice: 'Post was successfully created.' }
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        redirect_to '/feed', notice: 'An error occured.'
       end
     end
   end
 
   # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
         @post.user_id = current_user.id
         @post.save
         format.html { redirect_to '/', notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
       else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        redirect_to '/feed', notice: 'An error occured.'
       end
     end
   end
 
   # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to '/feed', notice: 'Post was successfully destroyed.' }
     end
   end
 
