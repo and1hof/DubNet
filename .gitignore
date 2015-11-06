@@ -15,3 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore environment variables and the Procfile
+.env
+Procfile
