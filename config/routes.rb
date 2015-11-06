@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+<<<<<<< HEAD
   # root to default home page
   root 'pages#home'
   
@@ -63,4 +64,15 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+=======
+  resources :posts
+  devise_for :users
+  
+  root 'pages#home'
+  
+  # PAGES
+  get '/feed' => 'pages#feed'
+  get '/user/:username' => 'pages#profile' # profiles must be attached to a username
+  
+>>>>>>> 5e72d4cf8f03d7bd0d6dcaa4ef76f3799bce48bf
 end
