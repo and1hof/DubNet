@@ -27,8 +27,18 @@
     <% for @p in @posts %>
         <div class="small-12 columns">
             <div class="panel">
-              <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_s %></h5>
-              <p><%= @p.content %></p>
+                <div class="row">
+                    
+                    <div class="small-2 columns">
+                        <a class="th"><img src="http://i.imgur.com/KQdBbeb.png" height="100%" width="100%"/></a>
+                    </div>
+                    
+                    <div class="small-10 columns">
+                      <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_formatted_s(:long).to_s %></h5>
+                      <p><%= @p.content %></p>
+                    </div>
+                </div>
+                
             </div>
         </div>
     <% end %>
