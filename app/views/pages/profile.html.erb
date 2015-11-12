@@ -1,2 +1,55 @@
-<h1>Pages#profile</h1>
-<p>Find me in app/views/pages/profile.html.erb</p>
+<div class="row">
+<div class="large-12 columns">
+  <div class="panel">
+    <h1><%= params[:username].to_s %>'s Profile</h1>
+  </div>
+</div>
+</div>
+
+<div class="row">
+
+ 
+<div class="large-3 columns ">
+  <div class="panel">
+    <a href="#"><img src="http://i.imgur.com/eXQsdDC.jpg"/></a>
+    <center>
+          <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+          <section class="section">
+            <h5 class="title"><a href="#">Computer Science</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Senior</a></h5>
+          </section>
+        </div>
+    </center>
+  </div>
+</div>
+
+ 
+ 
+<div class="large-6 columns">
+  
+       <% for @p in @posts %>
+        <div class="small-12 columns">
+            <div class="panel">
+              <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_s %></h5>
+              <p><%= @p.content %></p>
+            </div>
+        </div>
+    <% end %>
+    <%= will_paginate @posts %>
+    
+</div>
+
+ 
+ 
+<aside class="large-3 columns hide-for-small">
+  <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
+  <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
+</aside>
+
+</div>
+
+ 
+   
+

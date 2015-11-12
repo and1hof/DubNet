@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# For pagination
+gem 'will_paginate', '~> 3.0.6'
 # Foundation for styling
 gem 'foundation-rails'
 # Devise for authentication.
