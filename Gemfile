@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Foundation for styling
+gem 'foundation-rails'
 # Devise for authentication.
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
