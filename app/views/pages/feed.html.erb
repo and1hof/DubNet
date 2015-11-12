@@ -1,7 +1,36 @@
-<h1>Pages#feed</h1>
-<p>Find me in app/views/pages/feed.html.erb</p>
-<%= render '/components/post_form' %>
 
-<% for @p in @posts %>
-    <%= @p.content %> <br />
-<% end %>
+<div class="row">
+    <div class="small-12 columns">
+        <div class="icon-bar three-up">
+          <a class="item">
+            <i class="fi-home"></i>
+            <label>Sort Newest</label>
+          </a>
+          <a class="item">
+            <i class="fi-bookmark"></i>
+             <label>Sort Popular</label>
+          </a>
+          <a class="item">
+            <i class="fi-info"></i>
+             <label>Sort Oldest</label>
+          </a>
+        </div>
+    </div>
+    
+    <div class="small-12 columns">
+        <%= render '/components/header' %>
+    </div>
+    
+    <div class="small-12 columns">
+        <%= render '/components/post_form' %>
+    </div>
+    <% for @p in @posts %>
+        <div class="small-12 columns">
+            <div class="panel">
+              <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_s %></h5>
+              <p><%= @p.content %></p>
+            </div>
+        </div>
+    <% end %>
+    
+</div>
