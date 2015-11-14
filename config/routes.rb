@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get '/FAQ' => 'pages#FAQ'
   get '/TOS' => 'pages#terms'
   
+  get '/about' => 'pages#about'
+  get '/privacy' => 'pages#privacy'
+  
 end

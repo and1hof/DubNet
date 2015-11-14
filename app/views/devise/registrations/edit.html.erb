@@ -1,8 +1,24 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <h4>Optional</h4>
+  <div class="field">
+    <%= f.label :major %><br />
+    
+    <% 
+      majors = ['Computer Science', 'Computer Engineering', 'Business', 'Psychology', 'Economics', 'Biology', 'Chemistry', 'Nursing', 'Accounting', 'Mathematics', 'Urban Studies', 'Other'] 
+    %>
+    
+    <%= f.select :major, majors.sort_by{|major| major.downcase}%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.select :year, ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Post-Bac', 'Alumni'] %>
+  </div>
+  
+  <h4>Mandatory</h4>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
