@@ -15,10 +15,10 @@
     <center>
           <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
           <section class="section">
-            <h5 class="title"><a href="#">Computer Science</a></h5>
+            <h5 class="title"><a href="#"><%= User.find_by_username(params[:username]).year %></a></h5>
           </section>
           <section class="section">
-            <h5 class="title"><a href="#">Senior</a></h5>
+            <h5 class="title"><a href="#"><%= User.find_by_username(params[:username]).major %></a></h5>
           </section>
         </div>
     </center>
