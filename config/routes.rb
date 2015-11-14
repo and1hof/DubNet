@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/feed' => 'pages#feed'
   get '/user/:username' => 'pages#profile' # profiles must be attached to a username
   
+  get '/about' => 'pages#about'
+  
 end
