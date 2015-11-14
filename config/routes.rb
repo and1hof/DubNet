@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/user/:username' => 'pages#profile' # profiles must be attached to a username
   
   get '/about' => 'pages#about'
+  get '/privacy' => 'pages#privacy'
   
 end
