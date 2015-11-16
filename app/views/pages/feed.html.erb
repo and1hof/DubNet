@@ -34,8 +34,12 @@
                     </div>
                     
                     <div class="small-10 columns">
-                      <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_formatted_s(:long).to_s %></h5>
-                      <p><%= @p.content %></p>
+                        <% if (@p.anon != true) %>
+                        <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_formatted_s(:long).to_s %></h5>
+                        <% else %>
+                        <h5>Anonymous @ <%= @p.created_at.to_formatted_s(:long).to_s %></h5>
+                        <% end %>
+                        <p><%= @p.content %></p>
                     </div>
                 </div>
                 
