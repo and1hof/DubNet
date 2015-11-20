@@ -1,0 +1,28 @@
+<!-- Footer -->
+
+<footer class="footer" id="footer">
+
+  <div class="row full-width">
+    <p>
+          <a href ="/about">ABOUT</a> | <a href ="privacy">PRIVACY</a> | <a href="/TOS">TOS</a> | <a href="/FAQ">FAQ</a> | <a href="/contact">CONTACT</a>
+    </p>
+
+  </div>
+
+  </div>
+
+</footer>
+<script>
+$(window).bind("load", function () { // make sure footer sticks to bottom of the page
+    var footer = $("#footer");
+    var pos = footer.position();
+    var height = $(window).height();
+    height = height - pos.top;
+    height = height - footer.height();
+    if (height > 0) {
+        footer.css({
+            'margin-top': height + 'px'
+        });
+    }
+});
+</script>
