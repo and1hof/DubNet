@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :posts
+  resources :comments
   devise_for :users
   
   root 'pages#home'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
   get '/FAQ' => 'pages#FAQ'
   get '/TOS' => 'pages#terms'
+  get '/post/:id' => 'pages#post'
   
   get '/about' => 'pages#about'
   get '/privacy' => 'pages#privacy'

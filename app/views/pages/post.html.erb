@@ -1,0 +1,70 @@
+<div class="row">
+    
+    <div class="small-12 columns">
+            <a href="/feed">Back to Feed...</a>
+        <div class="panel">
+            <div class="row">
+                
+                <div class="small-2 columns">
+                    <a class="th"><img src="<%= User.find_by_id(@post.user_id).avatar %>"  height="100px" width="100px"/></a>
+                </div>
+                
+                <div class="small-10 columns">
+                    <% if (@post.anon != true) %>
+                    <h5><a href="/user/<%= User.find_by_id(@post.user_id).username %>"><%= User.find_by_id(@post.user_id).username %></a> @ <%= @post.created_at.to_formatted_s(:long).to_s %></h5>
+                    <% else %>
+                    <h5>Anonymous @ <%= @post.created_at.to_formatted_s(:long).to_s %></h5>
+                    <% end %>
+                    <p><%= @post.content %></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <%= form_for(@comment) do |f| %>
+
+      <div class="field">
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :post_id, value: @post.id %>
+      </div>
+
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <%= f.text_field :content,  autofocus: true, class: "text" %>
+            </div>
+            <div class="small-2 columns">
+              <%= f.submit "Add Comment", class: "button postfix" %>
+            </div>
+          </div>
+        </div>
+     
+      
+    <% end %>
+
+    <!-- display all comments -->
+    <% for @c in @comments %>
+        <div class="small-2 columns">
+            &nbsp;
+        </div>
+        <div class="small-10 columns">
+            <div class="panel">
+            <div class="row">
+                
+                <div class="small-2 columns">
+                    <a class="th"><img src="<%= User.find_by_id(@c.user_id).avatar %>"  height="50px" width="50px"/></a>
+                </div>
+                
+                <div class="small-10 columns">
+                    <h5><a href="/user/<%= User.find_by_id(@c.user_id).username %>"><%= User.find_by_id(@c.user_id).username %></a> @ <%= @c.created_at.to_formatted_s(:long).to_s %></h5>
+                    <p><%= @c.content %></p>
+                </div>
+            </div>
+        </div>
+        </div>
+    <% end %>
+    
+</div>

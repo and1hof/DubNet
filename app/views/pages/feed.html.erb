@@ -30,7 +30,7 @@
                 <div class="row">
                     
                     <div class="small-2 columns">
-                        <a class="th"><img src="<%= User.find_by_id(@p.user_id).avatar %>"  height="100%" width="100%"/></a>
+                        <a class="th"><img src="<%= User.find_by_id(@p.user_id).avatar %>"  height="100px" width="100px"/></a>
                     </div>
                     
                     <div class="small-10 columns">
@@ -44,7 +44,47 @@
                 </div>
                 
             </div>
+            
+            <!-- begin comments -->
+            <% @comments = Comment.all.where("post_id = ?", @p.id) %>
+            <% @counter = 0 %> <!-- depth of comments to display -->
+                <% for @c in @comments %>
+                    <% if @counter < 3 %>
+                    <div class="small-2 columns">
+                        &nbsp;
+                    </div>
+                    <div class="small-10 columns">
+                        <div class="panel">
+                        <div class="row">
+                            
+                            <div class="small-2 columns">
+                                <a class="th"><img src="<%= User.find_by_id(@p.user_id).avatar %>"  height="50px" width="50px"/></a>
+                            </div>
+                            
+                            <div class="small-10 columns">
+                                <h5><a href="/user/<%= User.find_by_id(@p.user_id).username %>"><%= User.find_by_id(@p.user_id).username %></a> @ <%= @p.created_at.to_formatted_s(:long).to_s %></h5>
+                                <p><%= @c.content %></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <% @counter += 1 %>
+                    <% end %>
+            <% end %>
+            <div class="small-2 columns">
+                &nbsp;
+            </div>
+            <div class="small-10 columns">
+                <div class="row">
+                    
+                    <div class="small-12 columns" style="margin-bottom: 15px;">
+                        <a href="/post/<%= @p.id %>">View All Comments (<%= Comment.all.where("post_id = ?", @p.id).count.to_s %>)</a>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
+        <!-- end comments -->
     <% end %>
     <%= will_paginate @posts %>
 </div>

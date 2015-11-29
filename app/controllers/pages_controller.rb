@@ -11,4 +11,10 @@ class PagesController < ApplicationController
 
   def home
   end
+  
+  def post 
+  @post = Post.find_by_id(params[:id])
+  @comments = Comment.all.where("post_id = ?", @post.id)
+  @comment = Comment.new
+  end
 end
