@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   # PAGES
   get '/feed' => 'pages#feed'
+  get '/feed/:sort' => 'pages#feed'
   get '/user/:username' => 'pages#profile' # profiles must be attached to a username
   get '/contact' => 'pages#contact'
   get '/FAQ' => 'pages#FAQ'

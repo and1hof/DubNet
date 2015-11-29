@@ -1,7 +1,15 @@
 class PagesController < ApplicationController
   def feed
     @post = Post.new
-    @posts = Post.paginate(:page => params[:page], :per_page => 10).order('updated_at DESC')
+    if (params[:sort] == "old")
+      @posts = Post.paginate(:page => params[:page], :per_page => 10).order('updated_at ASC')
+    elsif (params[:sort] == "new")
+      @posts = Post.paginate(:page => params[:page], :per_page => 10).order('updated_at DESC')
+    elsif (params[:sort] == "popular")
+      @posts = Post.paginate(:page => params[:page], :per_page => 10).includes(:comments).order("comments.created_at desc")
+    else 
+      @posts = Post.paginate(:page => params[:page], :per_page => 10).order('updated_at DESC')
+    end
   end
 
   def profile
