@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   def profile
     @myPosts = Post.all.where("user_id = ?", User.find_by_username(params[:username]).id).order('updated_at DESC')
     @posts = @myPosts.paginate(:page => params[:page], :per_page => 6)
+    @user = User.find_by_username(params[:username])
   end
 
   def home
@@ -25,4 +26,6 @@ class PagesController < ApplicationController
   @comments = Comment.all.where("post_id = ?", @post.id)
   @comment = Comment.new
   end
+  
+  
 end
