@@ -14,6 +14,10 @@
  *= require_self
  *= require foundation_and_overrides
  */
+ 
+body {
+    background-image: url("/bg.png");
+}
 
 .container {
     margin-top: 5%;
@@ -104,4 +108,7 @@
 
 .button {
   background-color: #4b2e83;
+}
+.button:hover {
+  background-color: #b7a57a;
 }
