@@ -26,6 +26,7 @@ A regex method in the application.rb controls which email domains are valid, in 
 - Basic sorting for the feed (newest, oldest, most popular)
 - Ad spaces
 - User profiles
+- Anonymous posting
 
 ### TODO
 - Bug fixes and optimizations
