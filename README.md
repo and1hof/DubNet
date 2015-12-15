@@ -1,7 +1,7 @@
 # DubNet
 A social networking service designed to aid university students in finding other students with like-minded interests who reside on the same campus.
 
-IMPORTANT: I am no longer maintaining this repo, and development will be handed off to a club on campus within the next few months. 
+IMPORTANT: I am no longer maintaining this repo, and all future development will be managed by an on-campus club at the UW. Message me if you need to get in contact with the new maintainers.
 
 ### PREREQUISITES
 - Linux Server 
@@ -42,5 +42,5 @@ This software is provided free of any license, and you are entirely responsible 
 
 ### SCREENSHOTS
 ![home](http://i.imgur.com/XhPrKhq.png)
-![feed](http://i.imgur.com/EHiwEq8.png)
+![feed](http://i.imgur.com/wqDiy1k.png)
 ![profile](http://i.imgur.com/coZKjH4.png)
